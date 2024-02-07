@@ -16,6 +16,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using Telegram.Bot.Framework.Core.BotBuilder;
 
 namespace Telegram.Bot.Framework;
@@ -26,7 +27,11 @@ internal class TelegramSimpleConsole : ITelegramModule
 
     }
     public void Build(IServiceCollection services, IServiceProvider builderService) =>
-        services.AddLogging(x => x.AddSimpleConsole());
+        services.AddLogging(x => x.AddSimpleConsole(y =>
+        {
+            y.ColorBehavior = LoggerColorBehavior.Enabled;
+            y.TimestampFormat = "[yyyy-MM-dd HH:mm:ss]";
+        }));
 }
 
 public static class TelegramSimpleConsoleExtensions

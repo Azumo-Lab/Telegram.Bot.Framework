@@ -54,6 +54,7 @@ public class TelegramBot : ITelegramBot, ITelegramModuleBuilder
     /// 
     /// </summary>
     private const string LogoType3 = @"
+
 ████████╗███████╗██╗     ███████╗ ██████╗ ██████╗  █████╗ ███╗   ███╗   ██████╗  ██████╗ ████████╗
 ╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝ ██╔══██╗██╔══██╗████╗ ████║   ██╔══██╗██╔═══██╗╚══██╔══╝
    ██║   █████╗  ██║     █████╗  ██║  ███╗██████╔╝███████║██╔████╔██║   ██████╔╝██║   ██║   ██║   
@@ -66,7 +67,8 @@ public class TelegramBot : ITelegramBot, ITelegramModuleBuilder
    █████╗  ██████╔╝███████║██╔████╔██║█████╗  ██║ █╗ ██║██║   ██║██████╔╝█████╔╝                  
    ██╔══╝  ██╔══██╗██╔══██║██║╚██╔╝██║██╔══╝  ██║███╗██║██║   ██║██╔══██╗██╔═██╗                  
 ██╗██║     ██║  ██║██║  ██║██║ ╚═╝ ██║███████╗╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗                 
-╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝                 
+╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   
+
 ";
     /// <summary>
     /// 
@@ -142,7 +144,6 @@ public class TelegramBot : ITelegramBot, ITelegramModuleBuilder
     {
         ArgumentNullException.ThrowIfNull(RuntimeServiceProvider, nameof(RuntimeServiceProvider));
 
-        Logger?.LogInformation("{A0}", LogoType3);
         Logger?.LogInformation(@"
 <Telegram.Bot.Framework>
 Copyright (C) <2022 - {A0}>  <Azumo-Lab> see <https://github.com/Azumo-Lab/Telegram.Bot.Framework/>
@@ -161,6 +162,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ", 
 DateTime.Now.Year);
+        Logger?.LogInformation("{A0}", LogoType3);
 
         // 执行前处理
         await PipelineProc<TelegramBotStartProcAttribute>();
